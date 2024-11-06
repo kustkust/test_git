@@ -11,4 +11,4 @@ jobs:
 
     steps:
       - name: Check out the code
-        run: echo kek
+        run: echo kek && sleep 60 && echo lol
