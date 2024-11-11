@@ -1,14 +1,10 @@
-name: CI
-
+name: Actions Runner Controller Demo
 on:
-  push:
-    branches:
-      - '*'
+  workflow_dispatch:
 
 jobs:
-  lint-and-test:
-    runs-on: self-hosted
-
+  Explore-GitHub-Actions:
+    # You need to use the INSTALLATION_NAME from the previous step
+    runs-on: arc-runner-set
     steps:
-      - name: Check out the code
-        run: echo kek && sleep 60 && echo lol
+    - run: echo "🎉 This job uses runner scale set runners!"
