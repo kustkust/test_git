@@ -1,0 +1,12 @@
+name: Caching Primes
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: arc-runner-set
+
+    steps:
+    - name: docker
+      run: docker --version
