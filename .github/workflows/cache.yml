@@ -1,0 +1,25 @@
+name: Caching Primes
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: arc-runner-set
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Cache Primes
+      id: cache-primes
+      uses: actions/cache@v4
+      with:
+        path: prime-numbers
+        key: ${{ runner.os }}-primes
+
+    - name: Generate Prime Numbers
+      if: steps.cache-primes.outputs.cache-hit != 'true'
+      run: date > prime-numbers
+
+    - name: Use Prime Numbers
+      run: cat prime-numbers
