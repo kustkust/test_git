@@ -8,7 +8,9 @@ jobs:
     runs-on: arc-runner-set
 
     steps:
-    - name: docker
-      run: docker --version
-    - name: docker-service
-      run: systemctl status docker
+      - name: Check out the code
+        uses: actions/checkout@v4
+      - name: docker
+        run: docker --version
+      - name: docker-service
+        run: docker build .
