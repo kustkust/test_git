@@ -13,4 +13,6 @@ jobs:
       - name: docker
         run: docker --version
       - name: docker-service
-        run: docker build .
+        run: |
+          dockerd
+          docker build .
