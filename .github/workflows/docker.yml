@@ -14,5 +14,5 @@ jobs:
         run: docker --version
       - name: docker-service
         run: |
-          dockerd
+          sudo dockerd
           docker build .
