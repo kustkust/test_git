@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: arc-runner-set
+    runs-on: arc-runner-dind
 
     steps:
       - name: Check out the code
@@ -14,5 +14,4 @@ jobs:
         run: docker --version
       - name: docker-service
         run: |
-          sudo dockerd
           docker build .
