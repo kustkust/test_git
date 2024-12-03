@@ -1,11 +1,11 @@
 services:
   cache-server:
-    image: ghcr.io/falcondev-oss/github-actions-cache-server:latest
+    image: ghcr.io/falcondev-oss/github-actions-cache-server:3.1.0
     ports:
       - '3000:3000'
     environment:
       URL_ACCESS_TOKEN: 123
-      API_BASE_URL: http://localhost:3000
+      API_BASE_URL: http://cache-server:3000
     volumes:
       - cache-data:/app/.data
 

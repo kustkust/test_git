@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: arc-runner-dind
+    runs-on: arc-runner-cached
 
     steps:
       - name: Check out the code
