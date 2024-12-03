@@ -68,7 +68,7 @@ githubConfigSecret: pre-defined-secret
 ## If any customization is required for dind or kubernetes mode, containerMode should remain
 ## empty, and configuration should be applied to the template.
 containerMode:
-  type: "dind"  ## type can be set to dind or kubernetes
+  type: "dind" ## type can be set to dind or kubernetes
 #   ## the following is required when containerMode.type=kubernetes
 #   kubernetesModeWorkVolumeClaim:
 #     accessModes: ["ReadWriteOnce"]
@@ -181,10 +181,11 @@ template:
   spec:
     containers:
       - name: runner
-        imagePullPolicy: Never
-        image: my-runner:latest
+        # imagePullPolicy: Never
+        # image: ghcr.io/actions/actions-runner:latest
+        # image: my-runner
+        image: docker.io/library/my-runner:latest
         command: ["/home/runner/run.sh"]
-
 ## Optional controller service account that needs to have required Role and RoleBinding
 ## to operate this gha-runner-scale-set installation.
 ## The helm chart will try to find the controller deployment and its service account at installation time.
