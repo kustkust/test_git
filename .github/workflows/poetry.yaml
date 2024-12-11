@@ -16,7 +16,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.local  # the path depends on the OS
-          key: poetry-1  # increment to reset cache
+          key: poetry-2  # increment to reset cache
 
       - name: Install Poetry
         if: steps.cached-poetry.outputs.cache-hit != 'true'
@@ -27,6 +27,9 @@ jobs:
           virtualenvs-path: .venv
           installer-parallel: true
 
+      - name: Poetry
+        run: which poetry
+
       - name: Load cached venv
         id: cached-poetry-dependencies
         uses: actions/cache@v3
@@ -36,7 +39,7 @@ jobs:
 
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: ~/local/bin/poetry install --no-interaction --no-root
+        run: poetry install --no-interaction --no-root
 
       - name: Run
         run: |
