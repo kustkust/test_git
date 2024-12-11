@@ -13,9 +13,6 @@ jobs:
     - name: Echo
       run: "echo ACTIONS_CACHE_URL=$ACTIONS_CACHE_URL"
 
-    - name: Ping
-      run: "ping cache-server.arc-systems.svc.cluster.local"
-
     - name: Cache Primes
       id: cache-primes
       uses: actions/cache@v4
