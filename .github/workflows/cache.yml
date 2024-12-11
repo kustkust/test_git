@@ -4,11 +4,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  test:
     runs-on: arc-runner-test
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Echo
+      run: "echo ACTIONS_CACHE_URL=$ACTIONS_CACHE_URL"
 
     - name: Cache Primes
       id: cache-primes
