@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: arc-runner-cached
+    runs-on: arc-runner-test
 
     steps:
     - uses: actions/checkout@v4
