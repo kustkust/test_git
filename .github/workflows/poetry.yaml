@@ -27,8 +27,11 @@ jobs:
           virtualenvs-path: .venv
           installer-parallel: true
 
-      - name: Poetry
-        run: which poetry
+      - name: Set Path for Poetry
+        run: export PATH="/home/runner/.local/bin:$PATH"
+
+      - name: Path
+        run: echo $PATH
 
       - name: Load cached venv
         id: cached-poetry-dependencies
@@ -39,9 +42,12 @@ jobs:
 
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root
+        run: |
+          export PATH="/home/runner/.local/bin:$PATH"
+          poetry install --no-interaction --no-root
 
       - name: Run
         run: |
           source .venv/bin/activate
+          export PATH="/home/runner/.local/bin:$PATH"
           python test.py
