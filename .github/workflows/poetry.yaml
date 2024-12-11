@@ -5,7 +5,7 @@ on:
 
 jobs:
   lint-and-test:
-    runs-on: python3-12-4
+    runs-on: arc-runner-test
 
     steps:
       - name: Check out the code
