@@ -23,7 +23,8 @@ jobs:
         uses: snok/install-poetry@v1
 
       - name: Set Path for Poetry
-        run: echo "export PATH=\"/home/runner/.local/bin:\$PATH\"" > /etc/profile.d/poetry-env-axon.sh
+        # run: echo "export PATH=\"/home/runner/.local/bin:\$PATH\"" > /etc/profile.d/poetry-env-axon.sh
+        run: echo "export PATH=\"/home/runner/.local/bin:\$PATH\"" >> ~/.bashrc
 
       - name: Path
         run: echo $PATH
