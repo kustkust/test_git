@@ -1,6 +1,7 @@
 name: Poetry
 
 on:
+  push:
   workflow_dispatch:
 
 jobs:
@@ -24,7 +25,7 @@ jobs:
 
       - name: Set Path for Poetry
         # run: echo "export PATH=\"/home/runner/.local/bin:\$PATH\"" > /etc/profile.d/poetry-env-axon.sh
-        run: echo "export PATH=\"/home/runner/.local/bin:\$PATH\"" >> $GITHUB_ENV
+        run: echo "PATH=\"/home/runner/.local/bin:\$PATH\"" >> $GITHUB_ENV
 
       - name: Path
         run: echo $PATH
