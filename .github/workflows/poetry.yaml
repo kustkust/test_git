@@ -17,27 +17,14 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.local  # the path depends on the OS
-          key: poetry-3  # increment to reset cache
+          key: poetry-0  # increment to reset cache
 
       - name: Install Poetry
         if: steps.cached-poetry.outputs.cache-hit != 'true'
         uses: snok/install-poetry@v1
 
-      - name: Version
-        run: /home/runner/.local/bin/poetry --version
-
-      - name: Path1
-        run: echo $PATH
-
-      - name: Set Path for Poetry
-        # run: echo "export PATH=\"/home/runner/.local/bin:\$PATH\"" > /etc/profile.d/poetry-env-axon.sh
+      - name: Set PATH for Poetry
         run: echo "PATH=/home/runner/.local/bin:$PATH" >> $GITHUB_ENV
-
-      - name: Path2
-        run: echo $PATH
-
-      - name: Which
-        run: which poetry
 
       - name: Setup Poetry
         run: |
