@@ -1,0 +1,13 @@
+name: Make
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  make:
+    runs-on: arc-runner-test
+
+    steps:
+      - name: Load
+        run: make --version
