@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  poetry:
+  always-save:
     runs-on: arc-runner-test
 
     steps:
@@ -21,7 +21,7 @@ jobs:
         run: cat data.txt
 
       - name: Write
-        run: echo $(data) >> data.txt
+        run: echo kek >> data.txt
 
       - name: Save
         uses: actions/cache/save@v3
