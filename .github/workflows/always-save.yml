@@ -1,0 +1,30 @@
+name: Always Save
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  poetry:
+    runs-on: arc-runner-test
+
+    steps:
+      - name: Load
+        id: load
+        uses: actions/cache/restore@v3
+        with:
+          path: data.txt
+          key: data
+
+      - name: Echo
+        if: steps.load.outputs.cache-hit == 'true'
+        run: cat data.txt
+
+      - name: Write
+        run: echo $(data) >> data.txt
+
+      - name: Save
+        uses: actions/cache/save@v3
+        with:
+          path: data.txt
+          key: ${{ steps.load.outputs.cache-primary-key }}
