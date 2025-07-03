@@ -44,3 +44,15 @@ uninstall-cache:
 	@cd cache \
 	&& minikube kubectl -- delete -n arc-runners \
 		-f cache-data-persistentvolumeclaim.yaml,cache-server-deployment.yaml,cache-server-service.yaml
+
+patch:
+	./version.sh patch
+
+minor:
+	./version.sh minor
+
+major:
+	./version.sh major
+
+prerelease:
+	./version.sh prerelease
