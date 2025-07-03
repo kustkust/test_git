@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "test-git"
-version = "0.1.2a3"
+version = "0.1.2a4"
 description = ""
 authors = ["kustkust <ekater.kust@gmail.com>"]
 readme = "README.md"
